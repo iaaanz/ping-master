@@ -16,7 +16,7 @@ function setMinute(min){
 setInterval(ping, setMinute(5))
 
 function ping() {
-  axios.get('https://homolog-base-bot.herokuapp.com/')
+  axios.get('https://homolog-base-bot.herokuapp.com/check')
     .then(resp => {
       console.log("Enviando um request!");
     })
