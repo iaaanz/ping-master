@@ -25,6 +25,16 @@ function ping() {
   });
 }
 
+function ping() {
+  axios.get('https://draleticiadelatorre.herokuapp.com/check')
+    .then(resp => {
+      console.log("Enviando um request!");
+    })
+    .catch(function (error){ 
+      console.log(error);
+  });
+}
+
 app.listen(PORT, () => {
   console.log(`Rodando na porta ${PORT}`);
 });
