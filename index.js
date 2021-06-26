@@ -1,39 +1,32 @@
-var express = require('express');
+const express = require('express');
 const app = express();
 const axios = require('axios');
 const PORT = process.env.PORT || 2999;
 
-app.get('/check', function(req, res) {
-  res.send('Recebi o request :)');
-  //console.log(res);
+const minute = (min) => min * 60000;
+
+const request = (url) => {
+  return axios
+    .get(url)
+    .then((resp) => {
+      console.log('Enviando um request!');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+const ping = () => {
+  request('https://filipe-move.herokuapp.com/check');
+  request('https://homolog-base-bot.herokuapp.com/check');
+};
+
+app.get('/check', function (req, res) {
+  res.send('Olá :D');
   console.log('Recebi o request :)');
 });
 
-function setMinute(min){
-  return minute = (min*60*1000)
-}
-
-setInterval(ping, setMinute(5))
-
-function ping() {
-  axios.get('https://homolog-base-bot.herokuapp.com/check')
-    .then(resp => {
-      console.log("Enviando um request!");
-    })
-    .catch(function (error){ 
-      console.log(error);
-  });
-}
-
-function ping() {
-  axios.get('https://draleticiadelatorre.herokuapp.com/check')
-    .then(resp => {
-      console.log("Enviando um request!");
-    })
-    .catch(function (error){ 
-      console.log(error);
-  });
-}
+setInterval(ping, minute(5));
 
 app.listen(PORT, () => {
   console.log(`Rodando na porta ${PORT}`);

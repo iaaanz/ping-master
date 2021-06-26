@@ -1,2 +1,3 @@
 # ping-master
-Serve que realiza pings a cada 5 minutos em https://homolog-base-bot.herokuapp.com para manter o bot do Discord sempre online.
+
+Server que realiza pings a cada 5 minutos em projetos que tenho upado no Heroku, dessa forma mantendo os mesmos sempre online :p
