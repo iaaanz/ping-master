@@ -17,7 +17,7 @@ const request = (url) => {
 };
 
 const ping = () => {
-  request('https://filipe-move.herokuapp.com/check');
+  // request('https://filipe-move.herokuapp.com/check');
   request('https://homolog-base-bot.herokuapp.com/check');
 };
 
